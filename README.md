@@ -1,4 +1,5 @@
-![logo](static/logo.svg)
+
+# *Fork from: [gabmus/hugo-ficurinia](https://gitlab.com/gabmus/hugo-ficurinia)*
 
 # Ficurinia
 
