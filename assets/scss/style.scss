@@ -128,7 +128,7 @@ body {
     text-decoration: none;
     background-color: transparent;
     border-radius: 0;
-    border-bottom: 2px solid currentcolor;
+    border-bottom: 1px solid currentcolor;
     &:hover, &:focus {
         &, &:not([disabled]) {
             border-color: var(--default_accent) !important;
@@ -323,6 +323,15 @@ h1, h2, h3, h4, h5, h6 {
         {{ if not (.Site.Params.underlineTitleLinks | default false) }}
             border-bottom: none;
         {{ end }}
+        &:hover, &:focus {
+            &, &:not([disabled]) {
+                text-decoration: none;
+                background-color: transparent;
+                border-radius: 0;
+                border-bottom: 1px solid currentcolor;
+                border-color: var(--default_accent) !important;
+            }
+        }
     }
 }
 
