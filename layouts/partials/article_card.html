@@ -34,7 +34,14 @@
                         {{.Summary }}
                     {{ end }}
                 </p>
-                <p><a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a></p>
+                <p>
+                    {{ if gt .ReadingTime 1 }}
+                        {{ .Scratch.Set "readingTime" "minutes" }}
+                    {{ else }}
+                        {{ .Scratch.Set "readingTime" "minute" }}
+                    {{ end }}
+                    <a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a> (~ {{ .ReadingTime }} {{ .Scratch.Get "readingTime" }})
+                </p>
             </div>
         {{ end }}
     </div>
