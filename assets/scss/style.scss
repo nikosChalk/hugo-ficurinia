@@ -461,11 +461,19 @@ ul {
 ul.list {
     .date {
         display: inline-block;
-        min-width: 100px;
+        min-width: 110px;
     }
     > li > div {
         display: grid;
-        grid-template-columns: 100px auto;
+        grid-template-columns: 110px auto;
+    }
+    @media (min-width: 480px) {
+        .date {
+            min-width: 155px;
+        }
+        > li > div {
+            grid-template-columns: 155px auto;
+        }
     }
 }
 
