@@ -18,6 +18,8 @@ $light_accent:     {{ $colors.light.accent     | default "#db5793" }};
 $light_sidebar_bg: {{ $colors.light.sidebar.bg | default "#e6e6e6" }};
 $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
 
+$default_p5_ss_height: {{ "650px" }};
+
 :root {
     --dark_bg:          #{$dark_bg};
     --dark_hl_bg:       #{$dark_hl_bg};
@@ -56,6 +58,8 @@ $light_sidebar_fg: {{ $colors.light.sidebar.fg | default "#121211" }};
         --default_sidebar_bg: #{$dark_sidebar_bg};
         --default_sidebar_fg: #{$dark_sidebar_fg};
     {{ end }}
+
+    --default_p5_ss_height: #{$default_p5_ss_height};
 }
 
 {{ if ($colors.auto_switch | default false) }}
@@ -1268,4 +1272,13 @@ input {
 .inline-h4 {
     @extend h4;
     font-weight: bold;
+}
+
+.side-by-side-container {
+    text-align:center;
+}
+img.side-by-side {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
