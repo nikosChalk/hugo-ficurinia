@@ -37,12 +37,20 @@
                             {{ end }}
                         </p>
                         <p>
-                            {{ if gt .ReadingTime 1 }}
-                                {{ .Scratch.Set "readingTime" "minutes" }}
+                            {{ $readingTime := 0 }}
+                            {{ if .Params.readingTime }}
+                                {{ $readingTime = .Params.readingTime }}
                             {{ else }}
-                                {{ .Scratch.Set "readingTime" "minute" }}
+                                {{ $readingTime = div (float .WordCount) .Site.Params.reading_speed }}
+                                {{ $readingTime = math.Ceil $readingTime }}
                             {{ end }}
-                            <a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a> (~ {{ .ReadingTime }} {{ .Scratch.Get "readingTime" }})
+
+                            {{ if gt $readingTime 1 }}
+                                {{ .Scratch.Set "readingTimeUnit" "minutes" }}
+                            {{ else }}
+                                {{ .Scratch.Set "readingTimeUnit" "minute" }}
+                            {{ end }}
+                            <a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a> (~ {{ $readingTime }} {{ .Scratch.Get "readingTimeUnit" }})
                         </p>
                     </div>
                 {{ end }}
