@@ -438,6 +438,10 @@ h6 {font-size: 0.7 * $base_font_size * $title_font_mult;}
     }
 {{ end}}
 
+.postlistitem.card h2 {
+    margin: 0;
+}
+
 .postlistitem.card div {
     img {
         height: 250px;
